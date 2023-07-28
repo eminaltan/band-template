@@ -1,0 +1,90 @@
+@use "sass:math";
+@use "sass:list";
+
+/// This function will remove suffix value of property (such as `padding`, `margin`, `font-size` e.g) and return to unitless value.
+/// @group helpers
+///
+/// @param {string} $number - This value will be convert unitless.
+///
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+/// This function arrange `margin` and `padding` property values of component use by `font-size` property. Another benefit rescale component size relatively of component's `font-size` property value.
+/// @group gap
+///
+/// @param {unitless | string} $top [null] - Top value of property.
+/// @param {unitless | string} $right [null]  - Right value of property.
+/// @param {unitless | string} $bottom [null] - Bottom value of property.
+/// @param {unitless | string} $left [null] - Left value of property.
+/// @param {unitless | string} $font-size [null] - font-size value of component.
+/// @param {string} $unit [null] - If want to use another value sould be pass in this variable.
+///
+/// @example scss - gap function
+/// .deneme {
+///  margin: gap(20px, 30px, 40px, 60px, 10px, rem);
+/// }
+///
+/// /**
+///  .deneme {
+///   margin: 2rem 3rem 4rem 6rem;
+/// }
+/// */
+///
+@function gap(
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $font-size: null,
+  $unit: null
+) {
+  $top: null !default;
+  $right: null !default;
+  $bottom: null !default;
+  $left: null !default;
+  $font-size: 16 !default;
+  $unit: em !default;
+  $result: null !default;
+  $counter: 0;
+
+  /** Created a list as name a $property variable and added values of function's parameters in this list. (Such as $top parameter's value.)  */
+  $property: $top $right $bottom $left;
+
+  @each $property-values in $property {
+    $unitless-values: strip-unit($property-values);
+    $unitless-font-size: strip-unit($font-size);
+
+    @if ($unitless-values==0) {
+      $result: list.append($result, 0);
+    } @else if ($unitless-values==null) {
+      $result: list.append($result, null);
+    } @else {
+      $node: math.div($unitless-values, $unitless-font-size) + $unit;
+      $result: list.append($result, $node);
+    }
+  }
+
+  /**
+   * Below loop will be check every value of result equal to zero. 
+   * If $result's value equal to zero, value of counter will be increase +1.
+   */
+  @each $val in $result {
+    @if ($val==0) {
+      $counter: $counter + 1;
+    }
+  }
+  /** 
+   * If $counter's value equal to 4 this means to each value of $result equal to zero so $result's pattern will be $result:0 0 0 0 
+   * Therefore below statement will be convert $result's pattern $result:0 (Think of `margin:0` e.g) 
+   * Also below statement if function all parameters equal zero will return $result:0. 
+   */
+  @if ($top==0 and $right==0 and $bottom==0 and $left==0 or $counter==4) {
+    $result: 0;
+  }
+
+  @return $result;
+}

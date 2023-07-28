@@ -1,0 +1,184 @@
+/// Base color of color theme.
+/// @group Colors
+///
+/// @type string
+$primary-400: #d200e9;
+
+/// Secondary base color of color theme.
+/// @group Colors
+///
+/// @type string
+$secondary-400: #937c23;
+
+/// Base accent of error color theme.
+/// @group Colors
+///
+/// @type string
+$accent-error-400: #ff3d3d;
+
+/// Base accent of warning color theme.
+/// @group Colors
+///
+/// @type string
+$accent-warning-400: #ffef3d;
+
+/// Base accent of success color theme.
+/// @group Colors
+///
+/// @type string
+$accent-success-400: #3dff40;
+
+/// Base accent of dark color theme.
+/// @group Colors
+///
+/// @type string
+$accent-dark-400: #000;
+
+/// Base accent of light color theme.
+/// @group Colors
+///
+/// @type string
+$accent-light-400: #fff;
+
+/// Small size for icon.
+/// @group Icons
+///
+/// @type string
+$icn-s: 18px;
+
+/// Regular size for icon.
+/// @group Icons
+///
+/// @type string
+$icn: 32px;
+
+/// Medium size for icon.
+/// @group Icons
+///
+/// @type string
+$icn-m: 40px;
+
+/// Small space for gap.
+/// @group Gap
+///
+/// @type string
+$gap-s: 8px;
+
+/// Regular space for gap.
+/// @group Gap
+///
+/// @type string
+$gap: 10px;
+
+/// Medium space for gap.
+/// @group Gap
+///
+/// @type string
+$gap-m: 15px;
+
+/// Breakpoint for mobile devices.
+/// @group media-queries
+///
+/// @type string
+$mobile: 588px;
+
+/// Breakpoint for tablet devices.
+/// @group media-queries
+///
+/// @type string
+$tablet: 930px;
+
+/// Breakpoint for variation of small desktop screen devices.
+/// @group media-queries
+///
+/// @type string
+$desktop-s: 1300px;
+
+/// Breakpoint for variation of regular desktop screen devices.
+/// @group media-queries
+///
+/// @type string
+$desktop: 1440px;
+
+/// Breakpoint for variation of medium desktop screen devices.
+/// @group media-queries
+///
+/// @type string
+$desktop-m: 1800px;
+
+/// A breakpoint list. This variable contain all breakpoints types. Prepared for function and mixin.
+/// @group media-queries
+///
+/// @type list
+$breakpoint-list: $mobile $tablet $desktop-s $desktop $desktop-m;
+
+/**
+ *  # Colors:
+ * 💡Tips: For all colors, if color tone bright  relativelty to base color, suffix value must be 300 or less. If color tone darker relativelty to base color, suffix value must be 500 or more etc.)
+ * 
+ * #### Example:
+ * Usage pattern
+ * $accent-error-300: #ffa1a1; Lighter color 
+ * $accent-error-400: #ff3d3d;  Base color
+ * $accent-error-500: #700000; Darker color
+ * 
+ * 
+ *  # Suffixes:
+ *  Sometimes some properties (margin or padding etc.) may have variations in this situation suffixes will come to help us. If suffixes insufucent for property variations then suffix name counter must be increase.
+ * 
+ *  Base variable hasn't any abbreviation. Some suffixes listed below.
+ * -x3s: extra extra extra small
+ * -x2s: extra extra small
+ * -xs: extra small
+ * -s: small
+ * -m: medium
+ * -l: large
+ * -xl: extra large
+ * -x2l: extra extra large
+ * 
+ * #### Example
+ * .component{
+ * 
+ * Means to --gap-xxxxl When insufucent for property variations then suffix name counter must be increase +1.
+ * margin: --gap-x4l;
+ * }
+ * 
+ * Sometimes a variable use as a value for another variable. 
+ * --padding-s: var(--gap-x4l) Therefore --padding-s and --gap-x4l share some value.
+ * #### Example
+ * .component
+ * {
+ * padding: --padding-s;
+ * }
+ * 
+ */
+
+:root {
+  /** COLORS */
+  --colors-primary-400: #{$primary-400};
+  --colors-secondary-400: #{$secondary-400};
+
+  --colors-accent-error-400: #{$accent-error-400};
+  --colors-accent-warning-400: #{$accent-warning-400};
+  --colors-accent-success-400: #{$accent-success-400};
+
+  --colors-accent-dark-400: #{$accent-dark-400};
+  --colors-accent-light-400: #{$accent-light-400};
+
+  /** ICON SIZES */
+  --icn-s: #{$icn-s};
+  --icn-r: #{$icn};
+  --icn-m: #{$icn-m};
+
+  /** GAPS */
+  --gap-s: #{$gap-s};
+  --gap-r: #{$gap};
+  --gap-m: #{$gap-m};
+
+  /** BREAKPOINTS */
+  --mobile: #{$mobile};
+  --tablet: #{$tablet};
+  --desktop-s: #{$desktop-s};
+  --desktop-r: #{$desktop};
+  --desktop-m: #{$desktop-m};
+}

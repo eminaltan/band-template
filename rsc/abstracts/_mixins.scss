@@ -1,0 +1,109 @@
+@use "variables" as *;
+
+/// This mixin will be create responsive layout for page or components use by media at-rule.
+/// @group media-queries
+///
+/// @param {list | string} $breakpoint [$breakpoint-list] - Reference of breakpoint component. If $breakpoint without use then this mixin will be generate all breakpoints depend of $breakpoint-list. If want to numerical value for breakpoint, value suffix must be px.
+///
+/// @example scss - devices mixin
+/// .page {
+///   background-color: red;
+///   /** When parameter without use then this mixin will be generate for all breakpoints depends of $breakpoint variable values. */
+///   @include devices(mobile) {
+///     background-color: green;
+///   }
+/// }
+///
+/// /**
+/// .page {
+///  background-color: red;
+///
+/// media only screen and (588px > width) {
+///  .page {
+///    background-color: green;
+///  }
+///  */
+///
+/// @require {variable} $breakpoint-list - If not passed any value in mixin with this variable will be use as default
+///
+@mixin devices($breakpoint: $breakpoint-list) {
+  /** Parse all nodes in breakpoint list */
+  @each $node in $breakpoint {
+    @if ($node== "desktop-m" or $node == $desktop-m) {
+      @media only screen and (width>=$desktop-m) {
+        @content;
+      }
+    }
+
+    @if ($node== "desktop" or $node == $desktop) {
+      @media only screen and ($desktop>width>=$tablet) {
+        @content;
+      }
+    }
+
+    @if ($node== "tablet" or $node == $tablet) {
+      @media only screen and ($tablet>width>=$mobile) {
+        @content;
+      }
+    }
+
+    @if ($node== "mobile" or $node == $mobile) {
+      @media only screen and ($mobile>width) {
+        @content;
+      }
+    }
+  }
+}
+
+/// This mixin will be generate component style based on width of component.
+/// @group media-queries
+/// @param {list | string} $breakpoint [$breakpoint-list] - Reference of breakpoint component. If $breakpoint without use then this mixin will be generate all breakpoints depend of $breakpoint-list. If want to numerical value for breakpoint, value suffix must be px.
+///
+/// @example scss - component-query mixin
+/// .component {
+///   background-color: red;
+///     /** When parameter without use then this mixin will be generate for all breakpoints depends of $breakpoint variable values. */
+///   @include component-query(mobile) {
+///     display: grid;
+///   }
+/// }
+///
+/// /**
+///  .component {
+///   background-color: red;
+/// }
+///  @container mobile 588px>width {
+///   .component {
+///     display: grid;
+///   }
+/// }
+///  */
+///
+/// @require {variable} $breakpoint-list - If not passed any value in mixin with this variable will be use as default
+///
+@mixin component-query($breakpoint: $breakpoint-list) {
+  $query: null;
+  $device-type: null;
+  /** Parse all nodes in breakpoint list */
+  @each $node in $breakpoint {
+    @if ($node== "mobile" or $node == $mobile) {
+      /** New value defined for $device-type as mobile */
+      $device-type: "mobile";
+      /** Being create $query for use in @container at-rule */
+      $query: #{$mobile} + ">width";
+    } @else if ($node== "tablet" or $node==$tablet) {
+      $device-type: "tablet";
+      $query: #{$tablet} + ">width"+">=" + (#{$mobile});
+    } @else if ($node== "desktop" or $node==$desktop) {
+      $device-type: "desktop";
+      $query: #{$desktop} + ">width"+">=" + (#{$tablet});
+    } @else if ($node== "desktop-m" or $node==$desktop-m) {
+      $device-type: "desktop-m";
+      $query: "width"+">=" + (#{$desktop-m});
+    }
+
+    @container #{$device-type} #{$query} {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "../abstracts/" as *;
+
+/// Caption styles. Common styles collected in main class. (For example `.caption`) More specific classes should be place inner class section.
+/// @group Fonts
+///
+.caption {
+  font-family: Roboto;
+  font-style: normal;
+
+  &-semibold {
+    /* caption/&-semibold */
+    @extend .caption;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.28px;
+  }
+
+  &-medium {
+    /* caption/&-medium */
+    @extend .caption;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
