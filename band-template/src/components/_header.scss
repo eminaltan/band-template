@@ -1,0 +1,99 @@
+@use "../base/typography" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  .menu {
+    @extend .lato;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: hsl(0, 0%, 0%);
+    padding: 0 20px;
+
+    label {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      &::before {
+        content: url("https://api.iconify.design/material-symbols/search.svg?color=black&width=24&height=24");
+        position: absolute;
+        margin-left: 10px;
+      }
+      input[type="search"] {
+        @extend .lato;
+        padding: 8px 0 8px 40px;
+        border-radius: 8px;
+        outline: none;
+      }
+    }
+
+    &__main > li:last-child {
+      .menu__sub {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0px 10px 18px -3px rgba(189, 189, 189, 0.62);
+        -moz-box-shadow: 0px 10px 18px -3px rgba(189, 189, 189, 0.62);
+        box-shadow: 0px 10px 18px -3px rgba(189, 189, 189, 0.62);
+
+        border: 1px solid rgb(172, 172, 172);
+        li,
+        a {
+          display: block;
+          color: #000;
+        }
+      }
+
+      &:hover {
+        .menu__sub {
+          display: block;
+        }
+      }
+    }
+    ul {
+      list-style-type: none;
+
+      li,
+      a {
+        display: inline-block;
+      }
+      a {
+        padding: 12px 24px;
+        text-decoration: none;
+        color: hsl(0, 0%, 100%);
+        &:hover {
+          background-color: hsl(0, 0%, 80%);
+          color: hsl(0, 0%, 0%);
+        }
+      }
+    }
+  }
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    img {
+      width: 100%;
+    }
+    p {
+      color: #fff;
+      position: absolute;
+      &:nth-child(2) {
+        @extend .segoeui;
+        margin-bottom: 100px;
+      }
+      &:last-child {
+        @extend .lato_bolder;
+        margin-bottom: 60px;
+      }
+    }
+  }
+}
