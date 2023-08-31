@@ -12,6 +12,7 @@
 .segoeui {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   &_24px {
+    @extend .segoeui;
     font-size: 24px;
   }
   &_30px {
@@ -19,5 +20,12 @@
     font-size: 30px;
     letter-spacing: 4px;
     font-weight: 400;
+  }
+  &_60px {
+    font-size: 60px;
+    &_bold {
+      @extend .segoeui_60px;
+      font-weight: bold;
+    }
   }
 }
