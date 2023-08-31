@@ -1,0 +1,142 @@
+@use "../base/typography" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  text-align: center;
+  &__top {
+    width: 50%;
+    margin: 0 auto;
+    h2 {
+      @extend .segoeui_30px;
+      margin-top: 30px;
+    }
+
+    /** TODO: To combine &__top em with &__bottom em */
+    em {
+      @extend .lato;
+      color: hsl(0, 0%, 53%);
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    p:last-child {
+      @extend .lato;
+      text-align: justify;
+      word-spacing: -1.5px;
+      margin-top: 10px;
+      line-height: 1.75;
+    }
+  }
+
+  &__middle {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    .photo-area {
+      p {
+        @extend .lato;
+        margin-bottom: 20px;
+      }
+      img {
+        max-width: 75%;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 100px;
+    width: 100%;
+    background-color: hsl(0, 0%, 0%);
+    padding: 40px 0;
+
+    h2 {
+      @extend .segoeui_30px;
+      color: #fff;
+    }
+
+    em {
+      @extend .lato;
+      color: hsl(0, 0%, 53%);
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .wrapper {
+      width: 75%;
+      margin: 0 auto;
+      margin-top: 20px;
+
+      &__ticket p {
+        padding: 10px;
+        text-align: left;
+        background-color: hsl(0, 0%, 100%);
+        border-bottom: 1px solid gray;
+        @extend .lato;
+        color: hsl(0, 0%, 46%);
+
+        &:not(:last-child)::after {
+          content: "Sold Out";
+          margin-left: 30px;
+          background-color: hsl(4, 90%, 58%);
+          color: #fff;
+          padding: 5px;
+        }
+
+        &:last-child::after {
+          content: "3";
+          float: right;
+          clear: right;
+          background-color: #000;
+          color: #fff;
+          padding: 2px 8px;
+          border-radius: 50%;
+        }
+      }
+
+      &__events {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        margin-top: 40px;
+
+        .card {
+          text-align: left;
+          background-color: #fff;
+
+          img {
+            width: 100%;
+          }
+
+          ul > li {
+            @extend .lato;
+            list-style-type: none;
+            padding: 10px;
+            &:first-child {
+              @extend .lato_bolder;
+            }
+
+            &:nth-child(2) {
+              color: #6b6b6b;
+            }
+          }
+
+          button {
+            @extend .lato;
+            padding: 10px 15px;
+            margin: 10px;
+            border: none;
+            background-color: #000;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
