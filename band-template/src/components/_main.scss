@@ -134,6 +134,10 @@
             border: none;
             background-color: #000;
             color: #fff;
+            &:hover {
+              background-color: #fff;
+              color: #000;
+            }
           }
         }
       }
