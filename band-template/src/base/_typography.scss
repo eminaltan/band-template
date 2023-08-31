@@ -22,6 +22,7 @@
     font-weight: 400;
   }
   &_60px {
+    @extend .segoeui;
     font-size: 60px;
     &_bold {
       @extend .segoeui_60px;
