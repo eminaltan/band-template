@@ -87,7 +87,7 @@ header {
       color: #fff;
       position: absolute;
       &:nth-child(2) {
-        @extend .segoeui_24px;
+        @extend .segoeui_60px_bold;
         margin-bottom: 100px;
       }
       &:last-child {
