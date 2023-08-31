@@ -43,7 +43,7 @@ const Menu = () => {
             href="#"
             title=""
           >
-            MORE
+            MORE &#10552;
           </a>
           <ul className="menu__sub">
             <li>
