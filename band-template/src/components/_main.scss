@@ -126,20 +126,6 @@
               color: #6b6b6b;
             }
           }
-
-          button {
-            @extend .lato;
-            padding: 10px 15px;
-            margin: 10px;
-            border: none;
-            background-color: #000;
-            color: #fff;
-            &:hover {
-              background-color: #fff;
-              color: #000;
-              outline: 1px solid;
-            }
-          }
         }
       }
     }
