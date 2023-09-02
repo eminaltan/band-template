@@ -1,0 +1,19 @@
+@use "../base/typography" as *;
+
+.buttons {
+  @extend .lato;
+
+  &_standart {
+    margin: 10px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+      outline: 1px solid;
+    }
+  }
+}
