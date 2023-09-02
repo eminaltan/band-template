@@ -2,15 +2,25 @@
 
 .lato {
   font-family: "Lato", sans-serif;
-  font-size: 15px;
-  &_bolder {
+  font-style: normal;
+  &_15px {
     @extend .lato;
-    font-weight: bold;
+    font-size: 15px;
+    &_bold {
+      @extend .lato_15px;
+      font-weight: bold;
+    }
+  }
+
+  &_18px {
+    @extend .lato;
+    font-size: 18px;
   }
 }
 
 .segoeui {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
   &_24px {
     @extend .segoeui;
     font-size: 24px;
