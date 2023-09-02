@@ -1,3 +1,4 @@
+import Button from "./Button";
 import "./_main.scss";
 
 const PhotoArea = (props) => {
@@ -28,7 +29,10 @@ const Card = (props) => {
         <li>{props.date}</li>
         <li>{props.content}</li>
       </ul>
-      <button>Buy Tickets</button>
+      <Button
+        modifier={"buttons_standart"}
+        content={"Buy Tickets"}
+      />
     </div>
   );
 };
