@@ -119,7 +119,7 @@
             list-style-type: none;
             padding: 10px;
             &:first-child {
-              @extend .lato_bolder;
+              @extend .lato_15px_bold;
             }
 
             &:nth-child(2) {
