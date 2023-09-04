@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+
+import "./base/_normalize.scss";
 /* import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals'; */
