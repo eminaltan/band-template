@@ -1,0 +1,44 @@
+/// Breakpoint for mobile devices.
+/// @group media-queries
+///
+/// @type string
+$mobile: 588px;
+
+/// Breakpoint for tablet devices.
+/// @group media-queries
+///
+/// @type string
+$tablet: 760px;
+
+/// Breakpoint for variation of small desktop screen devices.
+/// @group media-queries
+///
+/// @type string
+$desktop-s: 1300px;
+
+/// Breakpoint for variation of regular desktop screen devices.
+/// @group media-queries
+///
+/// @type string
+$desktop: 1440px;
+
+/// Breakpoint for variation of medium desktop screen devices.
+/// @group media-queries
+///
+/// @type string
+$desktop-m: 1800px;
+
+/// A breakpoint list. This variable contain all breakpoints types. Prepared for function and mixin.
+/// @group media-queries
+///
+/// @type list
+$breakpoint-list: $mobile $tablet $desktop-s $desktop $desktop-m;
+
+:root {
+  /** BREAKPOINTS */
+  --mobile: #{$mobile};
+  --tablet: #{$tablet};
+  --desktop-s: #{$desktop-s};
+  --desktop-r: #{$desktop};
+  --desktop-m: #{$desktop-m};
+}
