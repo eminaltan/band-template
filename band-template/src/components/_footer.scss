@@ -64,11 +64,12 @@
       text-align: right;
 
       input {
+        width: calc(50% - 10px);
         @extend .lato_15px;
         padding: 12px 8px;
 
         &:nth-child(2) {
-          margin-left: 15px;
+          margin-left: 20px;
         }
 
         &:nth-child(3) {
