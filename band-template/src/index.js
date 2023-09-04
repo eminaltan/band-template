@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Header from "./components//header/Header";
+import Main from "./components/main/Main";
+import Footer from "./components/footer/Footer";
 /* import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals'; */
 
 import "./base/_normalize.scss";
+import "./abstracts/_mixins.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
