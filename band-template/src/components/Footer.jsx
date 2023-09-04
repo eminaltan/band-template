@@ -1,3 +1,4 @@
+import Button from "./Button";
 import "./_footer.scss";
 
 const SocialItem = (props) => {
@@ -44,9 +45,10 @@ const Footer = () => {
             placeholder="Message"
           />
 
-          {/* TODO: Create Button.jsx component to seperate from Main.jsx
-            component */}
-          <button>SEND</button>
+          <Button
+            modifier={"buttons_standart"}
+            content={"SEND"}
+          />
         </form>
       </div>
 
