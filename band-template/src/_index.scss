@@ -1,0 +1,52 @@
+@use "./base/_normalize.scss" as *;
+@use "./abstracts/_mixins.scss" as *;
+
+@include devices(1440px) {
+  .footer__social {
+    width: 10%;
+  }
+}
+
+@include devices(tablet) {
+  header {
+    .menu {
+      position: static;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px 20px;
+
+      &__main {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__sub {
+        right: 20px;
+      }
+
+      label {
+        width: 100%;
+
+        input[type="search"] {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .content {
+    &__top,
+    &__middle {
+      width: 75%;
+    }
+
+    &__top p:last-child {
+      word-spacing: -1px;
+    }
+  }
+
+  form .buttons {
+    margin: 10px 0 0 0;
+  }
+}
