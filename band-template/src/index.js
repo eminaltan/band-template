@@ -7,8 +7,7 @@ import Footer from "./components/footer/Footer";
 import App from './App';
 import reportWebVitals from './reportWebVitals'; */
 
-import "./base/_normalize.scss";
-import "./abstracts/_mixins.scss";
+import "./_index.scss"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
