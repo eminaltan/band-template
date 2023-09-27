@@ -7,7 +7,7 @@
   }
 }
 
-@include devices(tablet) {
+@include devices() {
   header {
     .menu {
       position: static;
@@ -48,5 +48,51 @@
 
   form .buttons {
     margin: 10px 0 0 0;
+  }
+}
+@include devices(mobile) {
+  header {
+    .menu {
+      padding: 0;
+      &__main {
+        flex-direction: column;
+
+        li > a {
+          padding-left: 0;
+          display: block;
+        }
+      }
+
+      &__sub {
+        left: 0;
+        width: min-content;
+        position: static !important;
+      }
+    }
+
+    label {
+      width: 100%;
+    }
+  }
+
+  .card li {
+    line-height: 1.7;
+    &:last-child {
+      font-size: 0.9rem;
+    }
+  }
+  /* TODO: @eminaltan Please find a resolution for place codes in _button.scss file. */
+  .buttons_standart {
+    font-size: 0.8rem;
+  }
+
+  .footer__contact {
+    li:first-child {
+      margin-top: 10px;
+    }
+  }
+
+  .footer__social {
+    width: 18%;
   }
 }
